@@ -47,11 +47,12 @@
 .product-list {
   display: flex;
   flex-direction: column;
-  margin: 10px 0;
+  /* margin: 10px 0; */
   justify-content: center;
   align-items: center;
   width: 100%;
   height: auto;
+  background-color: white;
 }
 .product-box {
   height: 250px;
