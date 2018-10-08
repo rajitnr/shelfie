@@ -23,10 +23,10 @@ const Header = props => {
         <div className="nav-main">
           <nav>
             <Link to="/">
-              <div className="btn">Dashboard</div>
+              <div className="btn btn-header">Dashboard</div>
             </Link>
             <Link to="/add">
-              <div className="btn">Add Inventory</div>
+              <div className="btn  btn-header">Add Inventory</div>
             </Link>
           </nav>
         </div>

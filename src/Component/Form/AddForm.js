@@ -75,10 +75,10 @@ class AddForm extends Component {
           />
         </div>
         <div className="product-buttons">
-          <button className="btn" onClick={this.handleSubmit}>
+          <button className="btn  btn-header" onClick={this.handleSubmit}>
             Save Changes
           </button>
-          <button className="btn" onClick={this.resetState}>
+          <button className="btn btn-header" onClick={this.resetState}>
             Cancel
           </button>
         </div>

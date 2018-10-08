@@ -89,10 +89,10 @@ class UpdateForm extends Component {
           />
         </div>
         <div className="product-buttons">
-          <button className="btn" onClick={this.handleSave}>
+          <button className="btn btn-header" onClick={this.handleSave}>
             Save Changes
           </button>
-          <button className="btn" onClick={this.handleClose}>
+          <button className="btn  btn-header" onClick={this.handleClose}>
             Cancel
           </button>
         </div>

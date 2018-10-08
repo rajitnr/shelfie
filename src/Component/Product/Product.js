@@ -30,7 +30,7 @@ class Product extends Component {
             <p>${price}</p>
             <div className="edit-box">
               <nav>
-                <Link to={`/edit/${id}`} className="btn btn-primary">
+                <Link to={`/edit/${id}`} className="btn btn-product">
                   <div>Edit</div>
                 </Link>
               </nav>
@@ -53,7 +53,7 @@ class Product extends Component {
               />
             )} */}
               <div
-                className="btn btn-delete"
+                className="btn btn-product"
                 onClick={() => this.handleDelete(id)}
               >
                 Delete
