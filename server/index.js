@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/api/products", bc.readProduct);
+app.get("/api/products/:id", bc.readProductWithId);
 app.post("/api/product", bc.createProduct);
 app.delete("/api/product/:id", bc.deleteProduct);
 app.put("/api/product/:id", bc.updateProduct);

@@ -1,42 +1,48 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import UpdateForm from "../Form/UpdateForm";
 const BASE_URL = "http://localhost:3005/api";
 
 class Product extends Component {
-  constructor() {
-    super();
-    this.state = {
-      hereToModify: false
-    };
+  constructor(props) {
+    super(props);
   }
   handleDelete = id => {
     axios.delete(`${BASE_URL}/product/${id}`).then(response => {
-      console.log("After Delete ", response.data);
       this.setState({ products: response.data });
       this.props.updateProductsInParentComponent(this.state.products);
     });
   };
+
   render() {
     let { id, name, img, price } = this.props.productToDisplay;
     return (
       <div className="product-box">
-        <div>
-          <img src={img} style={{ width: 200 }} />
-          <h2>{name}</h2>
-          <h2>{price}</h2>
-        </div>
-        <div className="edit-box">
-          <button
+        {/* <div className="product-image"> */}
+        <img src={img} />
+        {/* </div> */}
+        <div className="product-details">
+          <div className="product-desc">
+            <p>{name}</p>
+            <p>${price}</p>
+            <div className="edit-box">
+              <nav>
+                <Link to={`/edit/${id}`} className="btn btn-primary">
+                  <div>Edit</div>
+                </Link>
+              </nav>
+              {/* <button
             onClick={() =>
               this.setState({ hereToModify: !this.state.hereToModify })
             }
-          >
+            >
             Edit Product
-          </button>
-          {this.state.hereToModify && (
-            <UpdateForm
+            </button>
+            {this.state.hereToModify && (
+              <UpdateForm
               productToDisplay={{ id, name, price, img }}
               updateProductsInParentComponent={
                 this.props.updateProductsInParentComponent
@@ -44,10 +50,18 @@ class Product extends Component {
               closeDialog={() =>
                 this.setState({ hereToModify: !this.state.hereToModify })
               }
-            />
-          )}
-          <button onClick={() => this.handleDelete(id)}>Delete Product</button>
+              />
+            )} */}
+              <div
+                className="btn btn-delete"
+                onClick={() => this.handleDelete(id)}
+              >
+                Delete
+              </div>
+            </div>
+          </div>
         </div>
+        {/* <Routes /> */}
       </div>
     );
   }

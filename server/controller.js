@@ -5,7 +5,21 @@ module.exports = {
     dbInstance
       .read_products()
       .then(products => {
-        // console.log("After Read : ", creatures);
+        console.log("After Read : ", products);
+        res.status(200).send(products);
+      })
+      .catch(error => {
+        res.status(500).send();
+      });
+  },
+  readProductWithId: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { id } = req.params;
+    // console.log("dbInstance", dbInstance);
+    dbInstance
+      .read_products_with_Id([id])
+      .then(products => {
+        console.log("After Read With ID : ", products);
         res.status(200).send(products);
       })
       .catch(error => {
@@ -53,14 +67,14 @@ module.exports = {
     const { id } = req.params;
     const { name, img, price } = req.body;
 
-    console.log("In for Modify", id, req.body);
+    console.log("In for Modify", id, req);
 
     dbInstance
       .update_product([id, name, price, img])
       .then(() => {
         console.log("After Update");
         dbInstance.read_products().then(products => {
-          console.log("After Read");
+          console.log("After Read", products);
           res.status(200).send(products);
         });
       })
